@@ -18,6 +18,10 @@ router.get("/shouts", (req, res, next) => {
     .catch(error => next(error));
 });
 
+router.get('/tell-all', (req, res) => {
+  res.json({secret: process.env.SECRET})
+})
+
 router.post("/shouts", (req, res, next) => {
   Shouts.add(req.body)
     .then(shout => {
